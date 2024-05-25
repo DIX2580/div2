@@ -2,6 +2,7 @@
 import React from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Link, Element } from "react-scroll";
 import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
 import Episodes from "./components/Episodes";
@@ -9,7 +10,8 @@ import AboutSection from "./components/1";
 import ProjectsSection from "./components/ProjectsSection";
 import Footer from "./components/Footer";
 import Previousepisodes from "./components/Previousepisodes";
-import Review from "./components/Review"
+import Review from "./components/Review";
+
 export default function Home() {
   const controls = useAnimation();
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.5 });
@@ -26,7 +28,7 @@ export default function Home() {
       opacity: 1,
       x: 0,
       transition: {
-        staggerChildren: 0.8, // Increased stagger time for slower animation
+        staggerChildren: 0.8,
       },
     },
   };
@@ -37,28 +39,28 @@ export default function Home() {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 1, // Increased duration for slower animation
+        duration: 1,
       },
     },
   };
 
   return (
     <main className="flex min-h-screen flex-col">
-      <Navbar />
       <HeroSection />
       <Episodes />
       <main className="min-h-screen">
-        <motion.div
-          ref={ref}
-          initial="hidden"
-          animate={controls}
-          variants={textVariants}
-        >
-          <Previousepisodes />
-        </motion.div>
-        <Review/>
+        <Element name="previous-episodes">
+          <motion.div
+            ref={ref}
+            initial="hidden"
+            animate={controls}
+            variants={textVariants}
+          >
+            <Previousepisodes />
+          </motion.div>
+        </Element>
+        <Review />
       </main>
-      <Footer />
     </main>
   );
 }

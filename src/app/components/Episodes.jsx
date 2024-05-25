@@ -3,9 +3,8 @@ import React from "react";
 const ProjectCard = () => {
   return (
     <div className="text-white episode font-Poppins">
-      <div className="container flex flex-col md:flex-row mx-auto p-8">
+      <div className="container flex flex-col  mx-auto p-8">
         <div className="">
-          {/* Left Section */}
           <div className="flex bg-contain top-0 md:ml-20 ml-4 mr-4">
           <div className="bg-yellow-400 text-black font-bold py-2 px-4">
             Latest Episode
@@ -18,7 +17,7 @@ const ProjectCard = () => {
             <iframe
               width="auto"
               height="auto"
-              src="https://www.youtube.com/embed/c_VrTcIY8kA?si=XvTzzXJXevcRiPx_"
+              src="https://www.youtube.com/embed/9KJJQzDBsj0?si=IdBejZ9R0b7MK4_t"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

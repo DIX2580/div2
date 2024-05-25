@@ -1,7 +1,8 @@
-"use client"
+"use client";
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { Link } from "react-scroll";
 
 const WelcomeSection = () => {
   const textVariants = {
@@ -30,7 +31,7 @@ const WelcomeSection = () => {
     <div className="bg-black text-white py-12">
       <div className="container mx-auto p-8">
         <div className="grid p-2 md:grid-cols-2 gap-10">
-          <div className="md:ml-20 md:mr-0 ml-4 mr-4 ">
+          <div className="md:ml-20 md:mr-0 ml-4 mr-4">
             <div>
               {[
                 "Welcome To",
@@ -88,7 +89,13 @@ const WelcomeSection = () => {
                 animate="visible"
                 variants={textVariants}
               >
-                All Episodes
+                <Link to="previous-episodes" smooth={true} duration={500}>
+                  <div className="hover:underline">
+                  All Episodes
+
+
+                  </div>
+                </Link>
               </motion.button>
             </div>
           </div>
