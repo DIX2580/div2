@@ -13,11 +13,20 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        'sans': ['Poppins', 'sans-serif'],
+        // You can add more font families here if needed
+      },
     },
     colors: {
       ...colors,
       primary: colors.purple,
       secondary: colors.pink,
+      sky: require('tailwindcss/colors').sky, // formerly 'lightBlue'
+        stone: require('tailwindcss/colors').stone, // formerly 'warmGray'
+        neutral: require('tailwindcss/colors').neutral, // formerly 'trueGray'
+        gray: require('tailwindcss/colors').gray, // formerly 'coolGray'
+        slate: require('tailwindcss/colors').slate, // formerly 'blueGray'
     },
   },
   plugins: [],

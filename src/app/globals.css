@@ -7,6 +7,13 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Regular.woff2') format('woff2'), 
+       url('/fonts/Poppins-Regular.woff') format('woff');
+  /* Include other font weights and styles similarly */
+}
+
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -16,12 +23,13 @@
   }
 }
 
+
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: black;
+  background-color: black;
+ 
+}
+.episode{
+  background-color: #181818;
+
 }

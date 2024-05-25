@@ -1,81 +1,115 @@
-"use client";
+"use client"
 import React from "react";
 import Image from "next/image";
-import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
-import Link from "next/link";
 
-const HeroSection = () => {
+const WelcomeSection = () => {
+  const textVariants = {
+    hidden: { opacity: 0, x: -100 },
+    visible: (i) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: i * 0.3,
+      },
+    }),
+  };
+
+  const imageVariant = {
+    hidden: { opacity: 0, x: 100 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: 1.2,
+      },
+    },
+  };
+
   return (
-    <section className="lg:py-16">
-      <div className="grid grid-cols-1 sm:grid-cols-12">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
-        >
-          <h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-8xl lg:leading-normal font-extrabold">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600">
-              Hello, I&apos;m{" "}
-            </span>
-            <br></br>
-            <TypeAnimation
-              sequence={[
-                "Judy",
-                1000,
-                "Web Developer",
-                1000,
-                "Mobile Developer",
-                1000,
-                "UI/UX Designer",
-                1000,
-              ]}
-              wrapper="span"
-              speed={50}
-              repeat={Infinity}
-            />
-          </h1>
-          <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            voluptuous.
-          </p>
-          <div>
-            <Link
-              href="/#contact"
-              className="px-6 inline-block py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-200 text-white"
-            >
-              Hire Me
-            </Link>
-            <Link
-              href="/"
-              className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-800 text-white mt-3"
-            >
-              <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">
-                Download CV
-              </span>
-            </Link>
+    <div className="bg-black text-white py-12">
+      <div className="container mx-auto p-8">
+        <div className="grid p-2 md:grid-cols-2 gap-10">
+          <div className="md:ml-20 md:mr-0 ml-4 mr-4 ">
+            <div>
+              {[
+                "Welcome To",
+                "Mishka Productions",
+                "The Podcast",
+                "With Kunal Show",
+              ].map((text, index) => (
+                <motion.h4
+                  key={text}
+                  className={
+                    index < 2
+                      ? "text-lg font-bold text-amber-400"
+                      : "text-5xl font-extrabold text-white mt-4"
+                  }
+                  custom={index}
+                  initial="hidden"
+                  animate="visible"
+                  variants={textVariants}
+                >
+                  {text}
+                </motion.h4>
+              ))}
+              <motion.p
+                className="text-base text-white font-bold mt-4"
+                custom={4}
+                initial="hidden"
+                animate="visible"
+                variants={textVariants}
+              >
+                Weekly discussions with visionary leaders at
+              </motion.p>
+              <motion.p
+                className="text-base text-white font-bold"
+                custom={5}
+                initial="hidden"
+                animate="visible"
+                variants={textVariants}
+              >
+                the forefront of India's burgeoning ₹120 lakh
+              </motion.p>
+              <motion.p
+                className="text-base text-white font-bold"
+                custom={6}
+                initial="hidden"
+                animate="visible"
+                variants={textVariants}
+              >
+                crore economy.
+              </motion.p>
+              <motion.button
+                type="button"
+                className="text-black font-Poppins font-bold mt-10 bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 rounded-full text-sm px-8 py-4 text-center me-2 mb-2 dark:focus:ring-yellow-900"
+                custom={7}
+                initial="hidden"
+                animate="visible"
+                variants={textVariants}
+              >
+                All Episodes
+              </motion.button>
+            </div>
           </div>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="col-span-4 place-self-center mt-4 lg:mt-0"
-        >
-          <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative">
+          <motion.div
+            className="flex justify-center items-center"
+            initial="hidden"
+            animate="visible"
+            variants={imageVariant}
+          >
             <Image
-              src="/images/hero-image.png"
-              alt="hero image"
-              className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-              width={300}
-              height={300}
+              src="/podcastav.png"
+              width={320}
+              height={320}
+              alt="Podcast with Kunal"
+              className="rounded-full"
             />
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default HeroSection;
+export default WelcomeSection;
